@@ -5,19 +5,26 @@
 
   <form #f="ngForm" (ngSubmit)="save(f)">
     <fieldset>
-      <div class="block">
-        <label>Book ID</label>
-        <input name="BookId" placeholder="Book ID" type="text" tabindex="1" required autofocus ngModel [(ngModel)]="book.BookID">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Book ID</label>
+        <div class="col-sm-2">
+          <input name="BookId" placeholder="Book ID" type="text" tabindex="1"
+           required autofocus ngModel [(ngModel)]="book.BookID">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Book Name</label>
+        <div class="col-sm-2">
+          <input name="BookName" placeholder="Book Name" type="text" tabindex="2" 
+          [(ngModel)]="book.BookName" required ngModel>
+        </div>
       </div>
       <br>
-      <div class="block">
-        <label>Book Name</label>
-        <input name="BookName" placeholder="Book Name" type="text" tabindex="2" [(ngModel)]="book.BookName" required ngModel>
-      </div>
-      <br>
-      <div class="block">
-        <button class="btn btn-primary"  name="submit" type="submit" id="booklist-submit" data-submit="...Sending">Save Details</button>
-        <button class="btn btn-warning" (click)="cancel()" name="cancel" type="cancel" id="booklist-cancel" data-submit="...Sending">Cancel</button>
+      <div>
+        <div style="padding-left:  190px">
+          <button class="btn btn-primary" name="submit" type="submit" id="booklist-submit" data-submit="...Sending">Save Details</button>
+          <button class="btn btn-warning" (click)="cancel()" name="cancel" type="cancel" id="booklist-cancel" data-submit="...Sending">Cancel</button>
+        </div>
       </div>
     </fieldset>
   </form>
