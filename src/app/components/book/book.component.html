@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{title}} Book</h1>
+  <hr>
+  <div>{{errorMessage}}</div>
+
+  <form #f="ngForm" (ngSubmit)="save(f)">
+    <fieldset>
+      <div class="block">
+        <label>Book ID</label>
+        <input name="BookId" placeholder="Book ID" type="text" tabindex="1" required autofocus ngModel [(ngModel)]="book.BookID">
+      </div>
+      <br>
+      <div class="block">
+        <label>Book Name</label>
+        <input name="BookName" placeholder="Book Name" type="text" tabindex="2" [(ngModel)]="book.BookName" required ngModel>
+      </div>
+      <br>
+      <div class="block">
+        <button class="btn btn-primary"  name="submit" type="submit" id="booklist-submit" data-submit="...Sending">Save Details</button>
+        <button class="btn btn-warning" (click)="cancel()" name="cancel" type="cancel" id="booklist-cancel" data-submit="...Sending">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

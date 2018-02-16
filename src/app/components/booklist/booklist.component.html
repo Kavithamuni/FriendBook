@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Books List
+        <button class="btn btn-success btn-circle pull-right" (click)='add()' title="Add Books">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
+    </h1>
+
+    <div class="alert-danger">{{errorMessage}}</div>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" aria-describedby="basic-addon1">
+        <span class="input-group-addon" id="basic-addon1">
+            <img style="width: 20px; height:20px;" src="assets/images/search.png">
+        </span>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books | search: searchText" [ngClass]="{'btn-primary': book.BookID == currentId }">
+                <td>{{book.BookID}}</td>
+                <td>{{book.BookName}}</td>
+                <td style="width: 150px;">
+                    <i class="glyphicon glyphicon-pencil btn btn-success tooltips" (click)="edit(book.BookID)" title="Edit"></i>
+                    <i class="glyphicon glyphicon-trash btn btn-danger tooltips" (click)="delete(book.BookID,book.BookName)" title="Delete"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
