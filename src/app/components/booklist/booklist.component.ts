@@ -8,27 +8,24 @@ import { FbserviceService } from '../../service/fbservice.service';
   styleUrls: ['./booklist.component.css']
 })
 export class BooklistComponent implements OnInit {
-
   books: Array<any> = [];
   errorMessage: any;
   currentId: number = 0;
-
   constructor(private fbservice: FbserviceService,
-    private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.getBooksList();
   }
 
-  //To get all bokks list
+  //To get all books list
   getBooksList() {
     this.fbservice.getBooklist().subscribe(
       data => this.books = data,
       error => {
         debugger;
         this.errorMessage = error
-      }
-    )
+      })
   }
 
   //To redirect to Add Page
@@ -50,6 +47,5 @@ export class BooklistComponent implements OnInit {
           this.getBooksList();
         },
         error => this.errorMessage = error)
-    }
+    } }
   }
-}
